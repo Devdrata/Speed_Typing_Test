@@ -1,0 +1,41 @@
+layout:
+<layout>:
+    textinputtext: textinput.text
+    orientation:"vertical"
+    Label:
+        markup:True
+        id: my_label
+        text : root.label_text
+        font_name: "fonts\Sofia-Regular.otf"
+        text_size: self.width, None
+        size_hint: 1, None
+        height: self.texture_size[1]
+        font_size: "35dp"
+        halign: 'center'
+        valign: 'top'
+    Label:
+        id: foralltime
+        text: "Time will be displayed here!"
+        font_name: "fonts\Sofia-Regular.otf"
+    Button:
+        id: clicked
+        disabled: False
+        text: "Generate!"
+        on_press: root.choose()
+
+
+        size_hint: 1, 1
+        font_name: "fonts\Sofia-Regular.otf"
+    TextInput:
+        id:textinput
+        on_text_validate: root.finish()
+        multiline: False
+        focus: False
+        on_focus: root.start()
+        hint_text:"Click the button and enter the generated text!"
+        readonly: True
+        on_text:
+            #print("Text Change!")
+            root.textchange()
+        font_name: "fonts\Sofia-Regular.otf"
+
